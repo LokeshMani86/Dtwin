@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+* {
+  font-family: 'Geist', sans-serif;
+}
+
+code, pre, .mono {
+  font-family: 'Geist Mono', monospace;
+}
+
+body {
+  background-color: #f5f3ef;
+}
