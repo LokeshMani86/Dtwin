@@ -37,18 +37,19 @@ export default function Chat() {
     const topicMap = {}
     topics.forEach(t => { topicMap[t.name] = t.score })
 
-    const data = await sendMessage({
-      message: text,
-      personaId: persona?.id,
-      userName: user.name,
-      topics: topicMap,
-    })
+  const data = await sendMessage({
+  message: text,
+  personaId: persona?.id,
+  userName: user.name,
+  topics: topicMap,
+})
 
-    addMessage({
-      role: 'assistant',
-      id: Date.now() + 1,
-      content: data.answer,
-    })
+addMessage({
+  role: 'assistant',
+  id: Date.now() + 1,
+  content: data.answer,
+  detectedTopics: data.detectedTopics,
+})
   } catch (err) {
     addMessage({
       role: 'assistant',
